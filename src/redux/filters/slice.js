@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   name: "",
 };
-export const selectNameFilter = (state) => state.filters.name;
+// export const selectNameFilter = (state) => state.filters.name;
 
 const slice = createSlice({
   name: "filters",
