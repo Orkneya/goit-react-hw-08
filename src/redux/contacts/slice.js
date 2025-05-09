@@ -67,7 +67,6 @@ const slice = createSlice({
           fetchContacts.pending
         ),
         (state, action) => {
-          // state.error = null;
           state.loading = true;
         }
       );

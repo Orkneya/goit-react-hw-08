@@ -6,6 +6,7 @@ nav {
   display: flex;
   gap: 20px;
   padding-block: 10px;
+  border-bottom: 1px solid black;
 }
 .link {
   font-size: 30px;

@@ -4,42 +4,21 @@ import s from "./LoginPage.module.css";
 // import MoviesList from "../../components/MoviesList/MoviesList";
 import toast, { Toaster } from "react-hot-toast";
 import { LoginForm } from "../../components/LoginForm/LoginForm";
+import { useSelector } from "react-redux";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import { Navigate } from "react-router-dom";
 
 const LoginPage = () => {
-  // const [movies, setMovies] = useState([]);
-  // const [totalPages, setTotalPages] = useState(null);
-  // const [loading, setLoading] = useState(false);
-
-  // useEffect(() => {
-  //   const abortController = new AbortController();
-  //   const getDate = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const data = await fetchMovies(abortController.signal);
-  //       setMovies((prev) => [...prev, ...data.results]);
-  //       // setMovies(data.result);
-  //       setTotalPages(data.total_pages);
-  //     } catch (error) {
-  //       if (error.message === "canceled") {
-  //         console.log("Запит скасований користувачем");
-  //         return;
-  //       }
-  //       toast.error("❌ Error fetching movies:", error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   getDate();
-  //   return () => {
-  //     abortController.abort();
-  //   };
-  // }, []);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  if (isLoggedIn) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div>
       <Toaster />
+      <h2 className={s.title}>LogIn</h2>
       <LoginForm />
-      {/* <h2 className={s.title}>Log In</h2> */}
     </div>
   );
 };

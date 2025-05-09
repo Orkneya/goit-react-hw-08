@@ -1,43 +1,41 @@
 import { useDispatch } from "react-redux";
-// import { logIn } from "../../redux/auth/operations";
-// import css from "./RegistrationForm.module.css";
+import { Field, Form, Formik } from "formik";
 import css from "./LoginForm.module.css";
+import { Link } from "react-router-dom";
+import { loginThunk } from "../../redux/auth/operations";
 
 export const LoginForm = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-
-    // dispatch(
-    //   logIn({
-    //     email: form.elements.email.value,
-    //     password: form.elements.password.value,
-    //   })
-    // )
-    //   .unwrap()
-    //   .then(() => {
-    //     console.log("login success");
-    //   })
-    //   .catch(() => {
-    //     console.log("login error");
-    //   });
-
-    form.reset();
+  const handleSubmit = (values, options) => {
+    console.log(123, values);
+    dispatch(loginThunk(values));
   };
 
+  const initialValue = {
+    email: "",
+    password: "",
+  };
   return (
-    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-      <label className={css.label}>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <Formik initialValues={initialValue} onSubmit={handleSubmit}>
+      <Form className={css.form}>
+        {/* <Form className={css.form} autoComplete="off"> */}
+        <label className={css.label}>
+          Email
+          <Field type="email" name="email" placeholder="email" />
+        </label>
+        <label className={css.label}>
+          Password
+          <Field type="password" name="password" placeholder="password" />
+        </label>
+        <Link to="/register">You don`t have account? Sign Up! </Link>
+        <div className={css.buttonrow}>
+          <button type="submit">LogIn</button>
+          <Link to="/" className={css.link}>
+            Go back
+          </Link>
+        </div>
+      </Form>
+    </Formik>
   );
 };

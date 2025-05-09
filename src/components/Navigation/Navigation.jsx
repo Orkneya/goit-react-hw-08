@@ -13,8 +13,11 @@ const Navigation = () => {
         <NavLink to="/" className={bieldLinkClass}>
           Home
         </NavLink>
+        <NavLink to="/tasks" className={bieldLinkClass}>
+          Tasks
+        </NavLink>
         <NavLink to="/login" className={bieldLinkClass}>
-          Log In
+          LogIn
         </NavLink>
         <NavLink to="/register" className={bieldLinkClass}>
           Register

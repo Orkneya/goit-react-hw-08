@@ -11,3 +11,17 @@
   flex-direction: column;
   margin-bottom: 16px;
 }
+.link {
+  display: flax;
+  padding: 5px;
+  color: black;
+  border: 1px solid gray;
+  border-radius: 8px;
+}
+.buttonrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}

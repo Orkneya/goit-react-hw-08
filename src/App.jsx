@@ -11,6 +11,13 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import Navigation from "./components/Navigation/Navigation";
+import Layout from "./components/Layout/Layout";
+import ContactsPage from "./pages/ContactsPage/ContactsPage";
+// import Button from "@mui/material/Button";
+
+// function App() {
+//   return <Button variant="contained">Нажми меня</Button>;
+// }
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
@@ -22,17 +29,17 @@ function App() {
   return (
     <div>
       <Suspense fallback={<Loader />}>
-        <Navigation />
+        {/* <Navigation /> */}
         <Routes className={css.main}>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/tasks" element={<ContactsPage />} />
+          </Route>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegistrationPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-        {/*
-        <ContactForm />
-        <SearchBox />
-        <ContactList /> */}
+        {/* <Button variant="contained">Нажми меня</Button> */}
       </Suspense>
     </div>
   );
