@@ -37,7 +37,7 @@ const HomePage = () => {
   return (
     <div>
       <Toaster />
-      <h2 className={s.title}>Contacts manager welcome page</h2>
+      <h2 className={s.title}>Contacts page</h2>
       {/* <MoviesList data={movies} flag={true} /> */}
     </div>
   );

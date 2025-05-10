@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-// import { register } from '../../redux/auth/operations';
 import css from "./RegistrationForm .module.css";
 import { Field, Form, Formik } from "formik";
 import { Link } from "react-router-dom";
@@ -7,23 +6,8 @@ import { registerThunk } from "../../redux/auth/operations";
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch();
-  // const handleSubmit = (e) => {
-  // e.preventDefault();
-  // const form = e.target;
-
-  // dispatch(
-  //   register({
-  //     name: form.elements.name.value,
-  //     email: form.elements.email.value,
-  //     password: form.elements.password.value,
-  //   })
-  // );
-
-  //   form.reset();
-  // };
 
   const handleSubmit = (values, options) => {
-    console.log(values);
     dispatch(registerThunk(values));
   };
   const initialValue = {

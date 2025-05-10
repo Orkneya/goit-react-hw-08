@@ -1,9 +1,9 @@
 .form {
   width: 320px;
   padding: 10px;
-  border: 1px solid blue;
+  border: 1px solid #a0c4f2;
   border-radius: 8px;
-  box-shadow: 2px 2px 4px 4px grey;
+  box-shadow: 2px 2px 4px 4px #a0c4f2;
 }
 
 .label {
@@ -15,7 +15,8 @@
   display: flax;
   padding: 5px;
   color: black;
-  border: 1px solid gray;
+  border: 1px solid #a0c4f2;
+  /* border: 1px solid gray; */
   border-radius: 8px;
 }
 .buttonrow {

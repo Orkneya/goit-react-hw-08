@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const goitAPI = axios.create({
-  baseURL: "https://task-manager-api.goit.global",
+  baseURL: "https://connections-api.goit.global",
 });
 // axios.defaults.baseURL = "https://connections-api.goit.global";
 const setAuthHeader = (token) => {
@@ -14,12 +14,12 @@ const removeAuthHeader = () => {
 };
 
 export const registerThunk = createAsyncThunk(
-  "register",
+  "auth/register",
   async (body, thunkAPI) => {
     try {
       const response = await goitAPI.post("/users/signup", body);
 
-      console.log(345, response.data);
+      console.log("registration", response.data);
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
@@ -28,21 +28,47 @@ export const registerThunk = createAsyncThunk(
   }
 );
 
-export const loginThunk = createAsyncThunk("login", async (body, thunkAPI) => {
-  try {
-    const response = await goitAPI.post("/users/login", body);
-    setAuthHeader(response.data.token);
-    return response.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
-  }
-});
+export const loginThunk = createAsyncThunk(
+  "auth/login",
+  async (body, thunkAPI) => {
+    try {
+      console.log("login body", body);
+      const response = await goitAPI.post("/users/login", body);
 
-export const logoutThunk = createAsyncThunk("logout", async (_, thunkAPI) => {
-  try {
-    await goitAPI.post("/users/logout");
-    removeAuthHeader();
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+      console.log("loginIn", response.data);
+      setAuthHeader(response.data.token);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
-});
+);
+
+export const logoutThunk = createAsyncThunk(
+  "auth/logout",
+  async (_, thunkAPI) => {
+    try {
+      await goitAPI.post("/users/logout");
+      removeAuthHeader();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const refreshThunk = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+    try {
+      const savedToken = thunkAPI.getState().auth.token;
+      if (!savedToken) {
+        return thunkAPI.rejectWithValue("Token is not exist!");
+      }
+      setAuthHeader(savedToken);
+      const response = await goitAPI.get("/users/current");
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

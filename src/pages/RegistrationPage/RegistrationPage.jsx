@@ -8,6 +8,8 @@ import { Navigate } from "react-router-dom";
 
 const RegistrationPage = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  console.log("isLoggedIn", isLoggedIn);
+
   if (isLoggedIn) {
     return <Navigate to="/" />;
   }

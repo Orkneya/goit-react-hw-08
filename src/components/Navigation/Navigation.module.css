@@ -11,8 +11,11 @@ nav {
 .link {
   font-size: 30px;
   font-weight: bold;
-  padding: 10px 3rem;
-  border: 1px solid lightcyan;
+  padding: 10px 2rem;
+
+  /* background-color: #a0c4f2; */
+  border: 1px solid #a0c4f2;
+  /* border: 1px solid lightcyan; */
   border-radius: 6px;
   background-color: #f9f9f9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
