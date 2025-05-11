@@ -6,35 +6,41 @@ import { Route, Routes } from "react-router-dom";
 import Loader from "./components/Loader/Loader";
 import Layout from "./components/Layout/Layout";
 import { refreshThunk } from "./redux/auth/operations";
-import { selectIsRefreshing } from "./redux/auth/selectors";
+import { selectIsLoggedIn, selectIsRefreshing } from "./redux/auth/selectors";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute ";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
-const RegistrationPage = lazy(() =>
-  import("./pages/RegistrationPage/RegistrationPage")
-);
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const ContactsPage = lazy(() => import("./pages/ContactsPage/ContactsPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
+const RegistrationPage = lazy(() =>
+  import("./pages/RegistrationPage/RegistrationPage")
+);
 
 function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
   useEffect(() => {
     dispatch(refreshThunk());
-    dispatch(fetchContacts());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(fetchContacts());
+    }
+  }, [isLoggedIn, dispatch]);
+
   return isRefreshing ? (
     <Loader />
   ) : (
     <div>
       <Suspense fallback={<Loader />}>
-        {/* <Navigation /> */}
         <Routes className={css.main}>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
-
             <Route
               path="/contacts"
               element={

@@ -15,12 +15,6 @@ const AuthNav = () => {
       <NavLink to="/register" className={bieldLinkClass}>
         Register
       </NavLink>
-      {/* <NavLink className={css.link} to="/register">
-        Register
-      </NavLink>
-      <NavLink className={css.link} to="/login">
-        Log In
-      </NavLink> */}
     </div>
   );
 };

@@ -8,7 +8,7 @@ const ContactsPage = () => {
     <div>
       <h2> ContactsPage</h2>
       <ContactForm />
-      {/* <SearchBox /> */}
+      <SearchBox />
       <ContactList />
     </div>
   );

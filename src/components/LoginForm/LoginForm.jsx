@@ -8,7 +8,6 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, options) => {
-    console.log(123, values);
     dispatch(loginThunk(values));
   };
 

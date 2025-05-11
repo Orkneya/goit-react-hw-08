@@ -1,10 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export const goitAPI = axios.create({
   baseURL: "https://connections-api.goit.global",
 });
-// axios.defaults.baseURL = "https://connections-api.goit.global";
+
 const setAuthHeader = (token) => {
   goitAPI.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
@@ -18,8 +19,6 @@ export const registerThunk = createAsyncThunk(
   async (body, thunkAPI) => {
     try {
       const response = await goitAPI.post("/users/signup", body);
-
-      console.log("registration", response.data);
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
@@ -32,13 +31,11 @@ export const loginThunk = createAsyncThunk(
   "auth/login",
   async (body, thunkAPI) => {
     try {
-      console.log("login body", body);
       const response = await goitAPI.post("/users/login", body);
-
-      console.log("loginIn", response.data);
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
+      toast.error("This is wrong account!");
       return thunkAPI.rejectWithValue(error.message);
     }
   }

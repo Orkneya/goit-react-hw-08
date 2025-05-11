@@ -1,15 +1,25 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import css from "./RegistrationForm .module.css";
 import { Field, Form, Formik } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { registerThunk } from "../../redux/auth/operations";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import { useEffect } from "react";
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const handleSubmit = (values, options) => {
     dispatch(registerThunk(values));
   };
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/contacts");
+    }
+  }, [isLoggedIn, navigate]);
+
   const initialValue = {
     name: "",
     email: "",
