@@ -1,13 +1,11 @@
 .main {
-  .main {
-    display: flex;
-    border: 3px solid black;
-    border-radius: 8px;
-    margin: 0 auto;
-    background-color: aqua;
-    color: blue;
-  }
+  margin-top: 0;
 }
 .my-icon {
   size: 20px;
+}
+.buttonrow {
+  display: flex;
+  flex-direction: column; /* Расположить кнопки вертикально */
+  gap: 10px; /* Добавить отступы между кнопками */
 }

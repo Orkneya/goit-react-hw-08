@@ -2,7 +2,7 @@ import React from "react";
 import Contact from "../Contact/Contact";
 import css from "./ContactList.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteContact } from "../../redux/contacts/operations";
+import { deleteContact, editContact } from "../../redux/contacts/operations";
 import { selectError, selectLoading } from "../../redux/contacts/selectors";
 import { selectFilteredContacts } from "../../redux/contacts/slice";
 
@@ -14,6 +14,12 @@ const ContactList = () => {
 
   const delateTask = (taskId) => {
     dispatch(deleteContact(taskId));
+  };
+  const editTask = (taskId) => {
+    // console.log(...item);
+    console.log(taskId);
+
+    dispatch(editContact(...item));
   };
 
   return (
