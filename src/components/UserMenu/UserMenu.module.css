@@ -1,0 +1,28 @@
+nav {
+  display: flex;
+  gap: 20px;
+  padding-block: 10px;
+  border-bottom: 1px solid black;
+}
+.link {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px 2rem;
+  /* background-color: #a0c4f2; */
+  border: 1px solid #a0c4f2;
+  /* border: 1px solid lightcyan; */
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.wrapper {
+  /* display: flex; */
+  margin-left: 20px;
+  margin-top: 10px;
+  align-items: center;
+  gap: 12px;
+}
+
+/* .username {
+  font-weight: 700;
+} */

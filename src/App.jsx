@@ -4,19 +4,11 @@ import { fetchContacts } from "./redux/contacts/operations";
 import { lazy, Suspense, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Loader from "./components/Loader/Loader";
-// import LoginPage from "./pages/LoginPage/LoginPage";
-// import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
-// import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-// import Navigation from "./components/Navigation/Navigation";
 import Layout from "./components/Layout/Layout";
-// import ContactsPage from "./pages/ContactsPage/ContactsPage";
 import { refreshThunk } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
-// import Button from "@mui/material/Button";
-
-// function App() {
-//   return <Button variant="contained">Нажми меня</Button>;
-// }
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute ";
+import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const RegistrationPage = lazy(() =>
@@ -42,13 +34,28 @@ function App() {
         <Routes className={css.main}>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
-            <Route path="/contacts" element={<ContactsPage />} />
+
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute>
+                  <ContactsPage />
+                </PrivateRoute>
+              }
+            />
           </Route>
-          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute
+                component={<LoginPage />}
+                redirectTo="/contacts"
+              />
+            }
+          />
           <Route path="/register" element={<RegistrationPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-        {/* <Button variant="contained">Нажми меня</Button> */}
       </Suspense>
     </div>
   );

@@ -1,15 +1,13 @@
 import { createSelector, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { fetchContacts, deleteContact, addContact } from "./operations";
 import { selectNameFilter } from "../filters/selektors";
+import { selectContacts } from "./selectors";
 
 const initialState = {
   items: [],
   loading: false,
   error: null,
 };
-export const selectContacts = (state) => state.contacts.items;
-export const selectLoading = (state) => state.contacts.loading;
-export const selectError = (state) => state.contacts.error;
 
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],

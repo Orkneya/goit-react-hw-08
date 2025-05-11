@@ -1,0 +1,27 @@
+.active {
+  color: #e84a5f;
+  text-decoration: underline;
+}
+.link {
+  display: inline-block;
+  font-size: 30px;
+  margin-right: 20px;
+  font-weight: bold;
+  padding: 10px 1.5rem;
+  /* background-color: #a0c4f2; */
+  border: 1px solid #a0c4f2;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* .link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 700;
+  color: #2a363b;
+}
+
+.link.active {
+  color: #e84a5f;
+} */
