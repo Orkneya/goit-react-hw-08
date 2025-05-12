@@ -5,7 +5,7 @@ import {
   addContact,
   editContact,
 } from "./operations";
-import { selectNameFilter } from "../filters/selektors";
+import { selectNameFilter } from "../filters/selectors";
 import { selectContacts } from "./selectors";
 import { logoutThunk } from "../auth/operations";
 
@@ -14,17 +14,6 @@ const initialState = {
   loading: false,
   error: null,
 };
-
-export const selectFilteredContacts = createSelector(
-  [selectContacts, selectNameFilter],
-  (contacts, filter) => {
-    return contacts
-      .filter((contact) => contact !== null)
-      .filter((contact) =>
-        contact.name.toLowerCase().includes(filter.toLowerCase())
-      );
-  }
-);
 
 const slice = createSlice({
   name: "contacts",
@@ -43,11 +32,12 @@ const slice = createSlice({
         state.items = state.items.map((item) =>
           item.id === action.payload.id ? action.payload : item
         );
+        state.editContact = null;
       })
       .addCase(addContact.fulfilled, (state, action) => {
         state.items.push(action.payload);
       })
-      // .addCase(logoutThunk.fulfilled, () => initialState)
+      .addCase(logoutThunk.fulfilled, () => initialState)
       .addMatcher(
         isAnyOf(
           editContact.fulfilled,

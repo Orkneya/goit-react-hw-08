@@ -7,8 +7,8 @@ import Loader from "./components/Loader/Loader";
 import Layout from "./components/Layout/Layout";
 import { refreshThunk } from "./redux/auth/operations";
 import { selectIsLoggedIn, selectIsRefreshing } from "./redux/auth/selectors";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute ";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute ";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
@@ -38,6 +38,7 @@ function App() {
   ) : (
     <div>
       <Suspense fallback={<Loader />}>
+        <h1>PHONEBOOK</h1>
         <Routes className={css.main}>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />

@@ -1,5 +1,6 @@
 .active {
-  color: #e84a5f;
+  color: #224074;
+  /* color: #e84a5f; */
   text-decoration: underline;
 }
 nav {
@@ -13,7 +14,6 @@ nav {
   font-size: 30px;
   font-weight: bold;
   padding: 10px 1.5rem;
-  /* background-color: #a0c4f2; */
   border: 1px solid #a0c4f2;
   border-radius: 6px;
   background-color: #f9f9f9;

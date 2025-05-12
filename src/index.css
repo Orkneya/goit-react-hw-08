@@ -31,27 +31,35 @@ body {
 }
 
 h1 {
+  color: #224074;
   line-height: 1.1;
+  font-size: 3.2em;
+  text-align: center;
 }
 
 h2 {
   text-align: center;
-  color: #040fd9;
+  /* color: #224074; */
   font-size: 3.2em;
   margin-top: 0.15em;
   margin-bottom: 0.15em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  color: #1c90f3;
+  letter-spacing: 0.5px;
 }
 
 h3 {
   text-align: center;
-  color: #e84a5f;
+  color: #32cd32;
+  /* color: #e84a5f; */
   font-size: 1.5em;
   margin-top: 0.1em;
   margin-bottom: 0.05em;
 }
 
 h4 {
-  text-align: center;
+  /* text-align: center; */
   color: #646cff;
   font-size: 1.5em;
   margin-top: 0.1em;

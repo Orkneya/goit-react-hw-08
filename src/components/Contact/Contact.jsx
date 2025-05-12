@@ -10,6 +10,10 @@ export const Contact = ({ name, number, id, onDelete }) => {
   const [newNumber, setNewNumber] = useState(number);
   const dispatch = useDispatch();
 
+  // const handleEdit = () => {
+  //   dispatch(setEditContact(contact));
+  // };
+
   const handleEdit = () => {
     if (isEditing) {
       const updatedData = { name: newName, number: newNumber };

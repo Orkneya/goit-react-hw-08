@@ -4,7 +4,7 @@ import s from "./HomePage.module.css";
 const HomePage = () => {
   return (
     <div>
-      <h2>Contacts page</h2>
+      <h2>WELCOME TO THE CONTACT MANAGER</h2>
     </div>
   );
 };
