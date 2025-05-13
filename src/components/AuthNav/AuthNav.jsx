@@ -8,7 +8,7 @@ const AuthNav = () => {
     return clsx(css.link, isActive && css.active);
   };
   return (
-    <div>
+    <div className={css.nav}>
       <NavLink to="/login" className={bieldLinkClass}>
         LogIn
       </NavLink>

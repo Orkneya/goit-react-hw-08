@@ -5,7 +5,7 @@ import {
   addContact,
   editContact,
 } from "./operations";
-import { selectNameFilter } from "../filters/selectors";
+import { selectNameFilter } from "../filters/selektors";
 import { selectContacts } from "./selectors";
 import { logoutThunk } from "../auth/operations";
 
