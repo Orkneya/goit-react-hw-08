@@ -5,6 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
+  /* background: linear-gradient(145deg, #02565b, #023437, #010f10); */
   background-color: #dceefc;
   /* background-color: #242424; */
   font-synthesis: none;
@@ -33,14 +34,15 @@ body {
 h1 {
   color: #224074;
   line-height: 1.1;
-  font-size: 3.2em;
-  text-align: center;
+  font-size: 3.5em;
+  /* text-align: center; */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
-  text-align: center;
+  /* text-align: center; */
   /* color: #224074; */
-  font-size: 3.2em;
+  font-size: 3em;
   margin-top: 0.15em;
   margin-bottom: 0.15em;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -51,8 +53,7 @@ h2 {
 
 h3 {
   text-align: center;
-  color: #32cd32;
-  /* color: #e84a5f; */
+  color: #1c90f3;
   font-size: 1.5em;
   margin-top: 0.1em;
   margin-bottom: 0.05em;
@@ -60,33 +61,39 @@ h3 {
 
 h4 {
   /* text-align: center; */
-  color: #646cff;
+  /* color: #646cff; */
+  color: #1c90f3;
   font-size: 1.5em;
   margin-top: 0.1em;
   margin-bottom: 0.05em;
 }
-
 button {
   border-radius: 8px;
-  border: 1px solid #a0c4f2;
+  border: 1px solid #1c90f3;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
+  box-shadow: 2px 2px 2px 2px grey;
+  transition: all 0.4s ease-in-out;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
   border-color: #646cff;
-  background-color: rgba(176, 196, 222, 0.5);
-  /* background-color: #b0c4de; */
+  background-color: lightblue;
 }
+*/
+/* button:hover {
+  border: 2px solid #009acd;
+} */
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  border: 2px solid #009acd;
+  /* outline: 4px auto -webkit-focus-ring-color; */
+  /* outline: 4px auto #009acd; */
 }
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
